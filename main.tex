@@ -1,0 +1,57 @@
+\documentclass[english]{presentation}
+%\setbeameroption{show notes on second screen}
+%\setbeameroption{show only notes}
+
+\usepackage{chngpage}
+\usepackage{array}
+\usepackage{xcolor}
+
+% beamer style file
+\usepackage{presento}
+
+\usepackage{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+\usepackage{stmaryrd}
+\usepackage{scalerel}
+
+% strikethrough text
+\usepackage[normalem]{ulem}
+
+% macros
+\usepackage{mama}
+\usepackage{opengames}
+
+\addbibresource{./bibliography.bib}
+
+\title{\bfseries Translating Extensive Form Games\\to Open Games with Agency}
+\subtitle{ACT2021}
+\institute{Mathematically Structured Programming group,\\Department of Computer and Information Sciences,\\University of Strathclyde}
+\author{\underline{Matteo Capucci}, Neil Ghani,\\Jérémy Ledent, Fredrik Nordvall Forsberg}
+\date{\vfill July 14th, 2021}
+
+\begin{document}
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+
+	\input{slides/intro.tex}
+	\input{slides/open-games.tex}
+	\input{slides/extensive-form.tex}
+	\input{slides/conclusions.tex}
+
+	\begin{framecard}
+		{\color{colorbg}
+		\bfseries
+
+		\hugetext{Thanks for your attention!}\\
+		\vfill
+		\largetext{Questions?}}
+	\end{framecard}
+
+	\begin{frame}[allowframebreaks]{References}
+		\nocite{*}
+		\printbibliography
+	\end{frame}
+\end{document}

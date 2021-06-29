@@ -1,0 +1,71 @@
+\begin{framecard}
+	{\color{colorbg}
+	\bfseries
+
+	\hugetext{Extensive form games\\\& their translation}}
+\end{framecard}
+
+\begin{frame}{Extensive form}
+	Extensive form is a classical formalism for games:
+
+	(nice pic)
+
+	A game is presented as a (rooted) tree, which should reflect the possible unfoldings of the game.
+	Each node is labelled with a \emph{player}. Branches represent possible \emph{moves} and \emph{payoff vectors} await at the leaves.
+
+	Two kinds:
+	\begin{enumerate}
+		\item Perfect information: any player always knows exactly the state of the game (path from root to their nodes)
+		\item Imperfect information: otherwise
+	\end{enumerate}
+
+	{\color{colornote}As customary in classical game theory, all players $\argmax$ their payoff.}
+\end{frame}
+
+\begin{frame}{PETs as inductive type}
+	We can easily represent PETs with an inductive type:
+
+	(inductive type)
+
+	where $P : \Set$ are players, $R : \Set$ are rewards.
+
+	(tree and corresponding term)
+\end{frame}
+
+\begin{frame}{PETs}
+	Correspondigly, we can define what strategies/moves/states/utilities are with inductive definitions:
+
+	(def)
+\end{frame}
+
+\begin{frame}{Translation}
+	Finally, we can translate any PETree to an open game:
+
+	(pic)
+
+	where
+	\begin{enumerate}
+		\item $\Dec{[n]}{R^P}$ is the `trivial' game where moves = strategies = $[n]$ and coplay is just $\Delta$.
+		\item $\regroup_p$ is regrouping along $\{p\} + P \to P$.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{IETs}
+	Imperfect information extensive form games are decorated with \emph{information sets}:
+
+	(pic)
+
+	Nodes in the same information set cannot be distinguished by players. Players do not share information sets, each player has their own partition of their nodes in information sets. Nodes in the same information set have the same moves.
+
+	Limit case: all information sets are singleton = perfect information.
+\end{frame}
+
+\begin{frame}{IETs as inductive type}
+	We can also represent IETs with an inductive type:
+
+	(inductive type)
+
+	where $P : \Set$ are players, $R : \Set$ are rewards, $I : \Set$ is a set of information labels, $\belongs : I \to P$ assigns information sets to players, $n : I \to \N^+$ assigns uniformly moves to nodes of the same information set.
+
+	(tree and corresponding term)
+\end{frame}
