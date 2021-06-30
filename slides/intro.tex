@@ -1,28 +1,63 @@
 \begin{frame}{Introduction}
 	\vfill
 	\begin{quotation}
-		Game theory is the mathematical study of interaction among independent, self-interested agents.\\
+		\centering
+		Game theory is the mathematical study of interaction\\
+		among independent, self-interested agents.\\
 		{\color{colornote}-- Essentials of Game Theory \cite{leyton2008essentials}}
 	\end{quotation}
 
-	Open games as a framework for compositional game theory
-	(string diagram)
+	\vfill
+	\textbf{Examples}: economic and ecological games, machine learning, etc. \textcolor{colornote}{$\rightsquigarrow$ \emph{cybernetics}.}
 
-	Classical game theory: normal form and extensive form
-	(PD in both forms)
+	\vfill
+	% ugh
+	\onslide<2->{
+		\alt<3>{
+			Open games as a framework for compositional game theory
+
+			\begin{center}
+				\includegraphics[width=.8\textwidth]{figures/og_ex.png}
+			\end{center}
+
+			Shows causality without being too unwieldy, compositional ($\rightsquigarrow$ large scale).\\
+			Also: string diagrams are nice to work with!
+		}{
+			Classical game theory: \textbf{normal form} and \textbf{extensive form}
+
+			\begin{center}
+				\includegraphics[width=.34\textwidth]{figures/pd_norm.png}
+				\includegraphics[width=.5\textwidth]{figures/pd_ext.png}
+			\end{center}
+
+			\textbf{Drawbacks}: too little information (NF), too much information (EF), unclear causal relationships (both). Most importantly: non-compositional! ($\rightsquigarrow$ small scale)
+		}
+	}
 \end{frame}
 
 \begin{frame}{Introduction}
-	In this work, we give a canonical translation from extensive form games to open games
+	Translating NF to open games is 'trivial' (there's only a utility function)...
 
+	\begin{center}
+		%\includegraphics[width=.2\textwidth]{figures/pd_norm_to_og.png}
+	\end{center}
 
-	To do so, we introduce:
+	\onslide<2->{
+		Translating EF to open games (mantaining a similar causal structure) is non-trivial:
+		\begin{enumerate}
+			\item EF is a \textbf{non-inductive definition}, and it's messy to map a whole tree in one go.
+			\item Open games don't have an \textbf{explicit notion of players}, necessary to model imperfect information and to correctly compute equilibria.
+		\end{enumerate}
+	}
+	\onslide<3->{
+		To do so, we introduce:
 
-	\begin{enumerate}
-		\item Open games with \emph{agency}, an improved compositional framework for games,
-		\item An operator calculus for games, in particular new \emph{choice operators},
-		\item \emph{Inductive data types for extensive form games} of (im)perfect information.
-	\end{enumerate}
+		\begin{enumerate}
+			\item Open games with \textbf{agency}, an improved compositional framework for games,
+			\item An operator calculus for games, in particular new \textbf{choice operators},
+			\item \textbf{Inductive data types for EF trees} with (im)perfect information.
+		\end{enumerate}
+	}
 \end{frame}
 
 % 1. Open Games with Agency

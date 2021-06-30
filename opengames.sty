@@ -62,17 +62,25 @@
 \DeclareMathOperator*{\Boxtimes}{\text{\raisebox{-0.25ex}{\scalebox{1.25}{$\boxtimes$}}}}
 \DeclareMathOperator*{\Ampersand}{\text{\raisebox{-0.25ex}{\scalebox{1.25}{$\extch$}}}}
 
+\newcommand{\One}{\mathbf{1}}
+\newcommand{\unit}{\bullet}
+
 \newcommand{\paths}{\mathsf{path}}
 \newcommand{\profiles}{\mathsf{prof}}
 \newcommand{\payoff}{\mathsf{payoff}}
 \newcommand{\rewards}{\mathsf{rewards}}
 \newcommand{\PETree}{\mathsf{PETree}}
 \newcommand{\IETree}{\mathsf{IETree}}
-\newcommand{\PET}{\textsc{pet}}
-\newcommand{\IET}{\textsc{iet}}
-\newcommand{\SPE}{\textsc{SPE}}
+\newcommand{\PET}{\mathsf{PET}}
+\newcommand{\IET}{\mathsf{IET}}
+\newcommand{\SPE}{\mathsf{SPE}}
 \newcommand{\arena}{\mathsf{arena}}
 
+\newcommand{\colag}[1]{\textcolor{coloragents}{#1}}
+\newcommand{\colar}[1]{\textcolor{colorarena}{#1}}
+
+\newcommand{\Leaf}{\mathsf{Leaf}}
+\newcommand{\Node}{\mathsf{Node}}
 
 \newcommand{\PETtoArena}{\PET\text{-}\mathsf{to}\text{-}\mathsf{arena}}
 \newcommand{\IETtoArena}{\IET\text{-}\mathsf{to}\text{-}\mathsf{arena}}
@@ -83,6 +91,11 @@
 \newcommand{\keep}{\mathsf{keep}}
 \newcommand{\resum}{\mathsf{sum}}
 \newcommand{\discard}{\mathsf{discard}}
+\newcommand{\combineStrategies}{\mathsf{combineStrategies}}
 
-\newcommand{\colag}[1]{\textcolor{coloragents}{#1}}
-\newcommand{\colar}[1]{\textcolor{colorarena}{#1}}
+\renewcommand{\stop}{\mathsf{stop}}
+\newcommand{\switch}{\mathsf{switch}}
+\newcommand{\go}{\mathsf{go}}
+\newcommand{\vote}{\mathsf{vote}}
+\newcommand{\inl}{\mathsf{inl}}
+\newcommand{\inr}{\mathsf{inr}}
