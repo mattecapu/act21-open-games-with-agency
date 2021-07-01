@@ -70,19 +70,20 @@
 \end{frame}
 
 \begin{frame}{What is an arena?}
-	It can be closed by specifying an \textbf{initial state} and a \textbf{utility function}:
+	It can be closed by specifying an \textcolor{colorarena}{\textbf{initial state}} and a \textcolor{colorarena}{\textbf{utility function}}:
 
 	\begin{center}
-		\fbox{\includegraphics[clip, page=4, trim=4.5cm 2cm 3cm 6cm, width=.9\textwidth]{figures/drawings.pdf}}
+		\includegraphics[clip, page=4, trim=4.5cm 3cm 2cm 7cm, width=.9\textwidth]{figures/drawings.pdf}
 	\end{center}
+	Observe that $\colar{\Lens(1,1)(X,S) \iso X}$ and $\colar{\Lens(Y,R)(1,1) \iso Y \to R}$.
 \end{frame}
 
 \begin{frame}{What is an arena?}
-	At the end of the day, the \textcolor{colorarena}{arena} amounts to an evaluation of strategies with rewards:
+	A \textbf{closed} \textcolor{colorarena}{arena} amounts to an evaluation of strategies with rewards:
 
 	\vspace{5ex}
 	\begin{center}
-		\fbox{\includegraphics[clip, page=5, trim=3cm 7cm .5cm 5cm, width=.9\textwidth]{figures/drawings.pdf}}
+		\includegraphics[clip, page=5, trim=3cm 6.5cm .5cm 5cm, width=.9\textwidth]{figures/drawings.pdf}
 	\end{center}
 \end{frame}
 
@@ -159,7 +160,7 @@
 			\end{equation*}
 			in which case
 			\begin{equation*}
-				\eq_\G(x, k) = \colag{(\varepsilon_1 \boxtimes \cdots \boxtimes \varepsilon_n)(}\colar{x \cmp \A \cmp k}\colag{)}.
+				\eq_\G(x, k) = \colag{(\Boxtimes_{p \in P} \varepsilon_p)(}\colar{x \cmp \A \cmp k}\colag{)}.
 			\end{equation*}
 		\end{definition}
 	}
@@ -173,11 +174,11 @@
 	\begin{itemize}
 		\item \textbf{Sequential composition}
 		\begin{center}
-			\includegraphics[clip, page=7, trim=0cm 21cm 0cm 2cm, width=.9\textwidth]{figures/drawings.pdf}
+			\includegraphics[clip, page=7, trim=2.5cm 21cm 1.5cm 1cm, width=.9\textwidth]{figures/drawings.pdf}
 		\end{center}
 		\item \textbf{Parallel composition}
 		\begin{center}
-			\includegraphics[clip, page=7, trim=0cm 5cm 0cm 13cm, width=.9\textwidth]{figures/drawings.pdf}
+			\includegraphics[clip, page=7, trim=2cm 5cm 1cm 13cm, width=.9\textwidth]{figures/drawings.pdf}
 		\end{center}
 	\end{itemize}
 
@@ -192,12 +193,12 @@
 	\begin{itemize}
 		\item \textbf{External choice}
 		\begin{center}
-			\includegraphics[clip, page=8, trim=0cm 17cm 0cm 4cm, width=.9\textwidth]{figures/drawings.pdf}
+			\includegraphics[clip, page=8, trim=0 17cm 2cm 4cm, width=.9\textwidth]{figures/drawings.pdf}
 		\end{center}
 		The `environment' chooses which game to play, agents are prepared to play both.
 		\item \textbf{Internal choice}
 		\begin{center}
-			\includegraphics[clip, page=8, trim=0cm 7cm 0cm 14cm, width=.9\textwidth]{figures/drawings.pdf}
+			\includegraphics[clip, page=8, trim=1.5cm 7cm 2cm 14cm, width=.9\textwidth]{figures/drawings.pdf}
 		\end{center}
 		The `environment' can play either game, agents choose which one.
 	\end{itemize}
@@ -208,8 +209,9 @@
 \begin{frame}{Reparametrisation}
 	Most importantly arenas form a (locally fibred) bicategory: one can \textbf{reparametrise} along a lens $\colag{\alpha : (\Omega', \Comega') \to (\Omega, \Comega)}$.
 
+	\vfill
 	\begin{center}
-		\includegraphics[clip, page=9, trim=0cm 7cm 0cm 14cm, width=.9\textwidth]{figures/drawings.pdf}
+		\includegraphics[clip, page=9, trim=0cm 19cm 13cm 0cm, width=.9\textwidth]{figures/drawings.pdf}
 	\end{center}
 
 	\vfill
@@ -220,19 +222,30 @@
 \end{frame}
 
 \begin{frame}{Regrouping}
-	If $\A$ has set of players $P$ and $r : P \to Q$ is a function, we can turn $\A$ into an arena with players $Q$ by reparametrising along
+	If $\A$ has set of players $P$ and $r : P \to Q$ is a function, we can turn $\A$ into an arena with players $Q$ by reparametrising along the permutation induced by $r$:
 	\begin{equation*}
 		\colag{\regroup_r : ({\textstyle\prod}_{q \in Q} (r^* \Omega)_q, {\textstyle\prod}_{q \in Q} (r^* \Comega)_q) \longto ({\textstyle\prod}_{p \in P} \Omega_p, {\textstyle\prod}_{p \in P} \Comega_p)}
 	\end{equation*}
-	which only permutes \& reindex the factors according to $r$.
 	\begin{example}
-		If $\colar{\A_1}$ and $\colar{\A_2}$ have the same players $\colag P$, $\colar{\A_1 \cmp \A_2}$ has players $\colag{P+P}$. So we regroup along $\colag{P+P \to P}$ to get again an arena with players $P$.
+		If $\colar{\A_1}$ and $\colar{\A_2}$ have the same players $\colag P$, $\colar{\A_1 \cmp \A_2}$ has players $\colag{P+P}$. Regrouping along $\colag{\nabla : P+P \to P}$ restores the correct set of players.
 	\end{example}
-	(drawing)
+
+	\begin{center}
+		\includegraphics[clip, page=10, trim=0cm 16.8cm 16cm .5cm, width=.7\textwidth]{figures/drawings.pdf}
+	\end{center}
+
+	Here $\colag{\Omega_i = (\nabla^* \Omega)_i = \Omega_i^1 \times \Omega_i^2}$, and likewise for $\Comega$.
 \end{frame}
 
 \begin{frame}{Tying}
-	The second most important application for reparametrisations is tying strategies at different point of the game. This is done by reparametrising along $\colag{(\Delta, \mathsf{combine})}$ (where $\colag{\mathsf{combine} = +, \pi_2, \max, \ldots}$).
+	By reparametrising along $\colag{(\Delta, \mathsf{combine})}$ (where $\colag{\mathsf{combine} = +, \pi_2, \max, \ldots}$), we can enforce the same strategies to be played at different points of a game.
+
+	\begin{example}
+		Play the same strategy every round:
+		\begin{center}
+			\includegraphics[clip, page=11, trim=0cm 15cm 10cm 0cm, width=.85\textwidth]{figures/drawings.pdf}
+		\end{center}
+	\end{example}
 
 	\vfill
 	\textbf{Notice}: $\colag{(\Delta, \mathsf{combine})^*}\colar{(\A_1 \cmp \A_2)}$ lies outside the image of $-\cmp-$, hence introduces 'non-compositional' effects. Indeed: \textbf{\textcolor{coloragents}{agency} is non-local.}

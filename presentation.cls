@@ -28,7 +28,12 @@
 \RequirePackage{mathrsfs}
 
 % bibs
-\usepackage[style=alphabetic, sorting=none]{biblatex}
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+	citestyle=authoryear,
+	bibstyle=ieee
+]{biblatex}
 
 % i10n stuff
 \RequirePackage[utf8]{inputenc}

@@ -18,7 +18,7 @@
 \definecolor{colornormaltext}{HTML}{000000} % heavy dark gray for normal text
 \definecolor{colorbg}{HTML}{fffafc}%{fff2f4} % background
 \definecolor{coloraccent}{HTML}{ff0065} % red
-\definecolor{colorblue}{HTML}{ff0065} % blue
+\definecolor{colorblue}{HTML}{2e004f} % blue
 \definecolor{colorgreen}{HTML}{00FF00} % green
 \definecolor{colorbglight}{HTML}{FFF8F9}
 \definecolor{colorarena}{HTML}{007544}
@@ -34,7 +34,7 @@
 	\vspace{0.40em}
 	\noindent
 	\hspace{-1.5em}
-	\color{colorblue}{\bfseries\insertframetitle}%
+	\color{coloraccent}{\bfseries\insertframetitle}%
 }
 
 % frame counter
@@ -72,7 +72,7 @@
  \item[\rtarrow]
 }
 
-\newcommand{\framecard}[2][colorblue]{
+\newcommand{\framecard}[2][coloraccent]{
   {\setbeamercolor{background canvas}{bg=#1}
     \begin{frame}[plain]
     \vfill
@@ -100,7 +100,7 @@
 \setbeamercolor{title}{fg=coloraccent}
 \setbeamercolor{subtitle}{fg=colornormaltext}
 \setbeamercolor{author}{fg=colorblue}
-\setbeamercolor{block title}{fg=colorblue}
+\setbeamercolor{block title}{fg=coloraccent}
 % \setbeamercolor{block title}{bg=colorbglight}
 % \setbeamercolor{block body}{bg=colorbglight}
 
