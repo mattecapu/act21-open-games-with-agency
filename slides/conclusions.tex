@@ -1,21 +1,33 @@
 \begin{frame}{Conclusions}
 	In this work:
 	\begin{enumerate}
-		\item We have seen how games naturally decompose in \emph{arenas} and \emph{selection functions}, with \emph{reparametrisations} playing a key role
-		\item This allows to handle long-range correlations in players' behaviour
+		\item We have seen how games naturally decompose in \textcolor{colorarena}{\emph{arenas}} and \textcolor{coloragents}{\emph{selection functions}}, with \textcolor{coloragents}{\emph{reparametrisations}} playing a key role
+		\item This allows to handle \textbf{long-range correlations} in players' behaviour
 		\item Hence we can easily map extensive form trees to open games with agency
 	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Future directions}
+
+	There remain some open questions related to the EF$\to$OG translation:
 	\begin{enumerate}
-		\item Is the translation `functorial'? Possible domain cat described in \cite{streufert2021category}.
-		\item Once the diagram is drawn, can we simplify it using topological moves?
-		e.g. mapping `simultaneity' to $\otimes$.
-		\item Infinite trees?
-		\item Can we treat SPE?
-		\item What kind of assignment is $\colag{\argmax} : \colar{\Arenas} \to \Games$?
-		\item Can we make selections compositional?
-		\item Dependent types
+		\item Can we simplify the resulting game using topological moves?\\
+		\textcolor{colornote}{e.g. translating IEF often yields OG which are $\otimes$-decomposable}
+		\item Can we treat subgame-perfect equilibrium?\\
+		\textcolor{colornote}{Can Escard\'o-Oliva product of selections\footnote[frame]{\cite{escardo2015bar}} be a lax monoidal structure on $\S$?}
 	\end{enumerate}
+
+	\vfill
+	\onslide<2->{
+		Moreover, the framework of open games (with agency) is still incomplete.
+		\begin{enumerate}
+			\item Selection functions do not interact much with arenas\\
+			\textcolor{colornote}{Is there a better way to equip arenas with equilibrium predicates?}
+			\item What kind of assignment is `$\colag{\argmax} : \colar{\Arenas} \to \Games$'?\\
+			\textcolor{colornote}{An oplax Para coalgebra?} %Can we define an `Hicks laxator'?
+			% \item Are equilibria representable in some sense?\\
+			% \textcolor{colornote}{In other words, what's the best }
+			% \textcolor{colornote}{Possible domain cat described in \cite{streufert2021category}}.
+		\end{enumerate}
+	}
 \end{frame}

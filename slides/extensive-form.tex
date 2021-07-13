@@ -35,7 +35,7 @@
 			& \colag{\strategies_\PET} : \PETree \to P \to \mathsf{Set} \\
 			& \colag{\strategies_\PET} \; (\Leaf \; \colar v)\; \colag p = \colag\One \\
 			& \colag{\strategies_\PET} \; (\Node \; \colag q \; \colar n \; f)\; \colag p\\
-			& \qquad = (\mathsf{if}\ \colag{p \equiv q}\ \mathsf{then}\ \colag{[n]}\ \mathsf{else}\ \colag\One) \times (\Pi\,{\colar{m \in [n]}})\; \colag{\strategies_\PET}\; (\colar{f\; m)}\; \colag p\\
+			& \qquad = (\mathsf{if}\ \colag{p \equiv q}\ \mathsf{then}\ \colag{[n]}\ \mathsf{else}\ \colag\One) \times (\Pi\,{\colar{m \in [n]}})\; \colag{\strategies_\PET}\; (f\; \colar{m)}\; \colag p\\
 			% &\\
 			% & \profiles_\PET : \PETree \to \mathsf{Set}\\
 			% & \profiles_\PET\; T = (\Pi\,p \in P)\ \strategies_\PET\; T\; p
@@ -44,36 +44,41 @@
 \end{frame}
 
 \begin{frame}{Extensive form: moves}
-	%\textbf{\textcolor{coloragents}{Strategies}} can be inductively defined...
-	\vspace{-3ex}
-	\begin{center}
-		\includegraphics[clip, page=14, trim=1cm 17cm 26.2cm 0cm, width=.5\textwidth]{figures/drawings.pdf}
-	\end{center}
-	\begin{definition}
-		\vspace{-3ex}
-		\begin{align*}
-			& \colar{\paths_\PET} : \PETree \to \mathsf{Set} \\
-			& \colar{\paths_\PET} \; (\Leaf \; \colar v) = \colar \One \\
-			& \colar{\paths_\PET} \; (\Node \; \colag p \; \colar n \; f) = (\Sigma\,\colar{m \in [n]}) \; \colar{\paths_\PET}\; (f\; \colar m)
-		\end{align*}
-	\end{definition}
+	\begin{minipage}{\textwidth}
+		\hspace{-5ex}
+		\begin{minipage}{.51\textwidth}
+			\begin{center}
+				\includegraphics[clip, page=14, trim=1cm 17cm 26.2cm 0cm, width=\textwidth]{figures/drawings.pdf}
+			\end{center}
+			\begin{definition}
+				\vspace{-3ex}
+				\begin{align*}
+					& \colar{\paths_\PET} : \PETree \to \mathsf{Set} \\
+					& \colar{\paths_\PET} \; (\Leaf \; \colar v) = \colar \One \\
+					& \colar{\paths_\PET} \; (\Node \; \colag p \; \colar n \; f) =\\ &\quad (\Sigma\,\colar{m \in [n]}) \; \colar{\paths_\PET}\; (f\; \colar m)
+				\end{align*}
+			\end{definition}
+		\end{minipage}
+		\hspace{3ex}
+		\begin{minipage}{.5\textwidth}
+			\begin{center}
+				\includegraphics[clip, page=15, trim=1cm 17cm 26.2cm 0cm, width=\textwidth]{figures/drawings.pdf}
+			\end{center}
+			\begin{definition}
+				\vspace{-3ex}
+				\begin{align*}
+					& \colar{\payoff_\PET} : (T : \PETree) \to (\paths_\PET\;T) \to \colar{R^P}\\
+					& \colar{\payoff_\PET} \; (\Leaf \; \colar v) \; \colar\unit = \colar v\\
+					& \colar{\payoff_\PET} \; (\Node \; \colag p \; \colar n \; f) \; \colar{(m, \pi)}\\
+					&\quad = \colar{\payoff_\PET}\; (f\; \colar m) \; \colar \pi
+				\end{align*}
+			\end{definition}
+		\end{minipage}
+	\end{minipage}
 \end{frame}
 
-\begin{frame}{Extensive form: payoff function}
-	%\textbf{\textcolor{coloragents}{Strategies}} can be inductively defined...
-	\vspace{-3ex}
-	\begin{center}
-		\includegraphics[clip, page=15, trim=1cm 17cm 26.2cm 0cm, width=.5\textwidth]{figures/drawings.pdf}
-	\end{center}
-	\begin{definition}
-		\vspace{-3ex}
-		\begin{align*}
-			& \colar{\payoff_\PET} : (T : \PETree) \to (\paths_\PET\;T) \to \colar{R^P}\\
-			& \colar{\payoff_\PET} \; (\Leaf \; \colar v) \; \colar\unit = \colar v\\
-			& \colar{\payoff_\PET} \; (\Node \; \colag p \; \colar n \; f) \; \colar{(m, \pi)} = \colar{\payoff_\PET}\; (f\; \colar m) \; \colar \pi
-		\end{align*}
-	\end{definition}
-\end{frame}
+% \begin{frame}{Extensive form: payoff function}
+% \end{frame}
 
 % \begin{frame}{Extensive form}
 % 	A game is presented as a (rooted) tree, which should reflect the possible unfoldings of the game.
@@ -95,37 +100,44 @@
 \begin{frame}{Translation}
 	Finally, we can translate any $\PETree$ to an open game with agency:
 
-	\begin{align*}
-		&\colar{\PETtoArena} : (T : \PETree) \longto \Lens_{\colag{(\Pi_p \strategies\, T\, p, R^P)}}\colar{(1,R^P)(\paths\; T, R^P)}\\
-		&\PETtoArena (\Leaf\; \colar v) = {\includegraphics[clip, page=18, trim=18cm 22cm 19cm 3.5cm, width=.1\textwidth]{figures/drawings.pdf}}\\
-		&\PETtoArena (\Node \; \colag p \; \colar n \; f) = {\includegraphics[clip, page=18, trim=18cm 7cm 1cm 10cm, width=.65\textwidth]{figures/drawings.pdf}}
-	\end{align*}
-	% \begin{center}
-	% 	\hspace{-8.5ex}\includegraphics[clip, page=18, trim=0cm 7cm 1cm 0cm, width=1.1\textwidth]{figures/drawings.pdf}
-	% \end{center}
+	% \begin{align*}
+	% 	&\colar{\PETtoArena} : (T : \PETree) \longto \Lens_{\colag{(\Pi_p \strategies\, T\, p, R^P)}}\colar{(1,R^P)(\paths\; T, R^P)}\\
+	% 	&\PETtoArena (\Leaf\; \colar v) = {\includegraphics[clip, page=18, trim=18cm 22cm 19cm 3.5cm, width=.1\textwidth]{figures/drawings.pdf}}\\
+	% 	&\PETtoArena (\Node \; \colag p \; \colar n \; f) = {\includegraphics[clip, page=18, trim=18cm 7cm 1cm 10cm, width=.65\textwidth]{figures/drawings.pdf}}
+	% \end{align*}
+	\vfill
+	\begin{minipage}{\textwidth}
+		\hspace{-9ex}
+		\begin{minipage}{1.15\textwidth}
+			\begin{center}
+				\includegraphics[clip, page=18, trim=0cm 11.5cm 5cm 0cm, width=\textwidth]{figures/drawings.pdf}
+			\end{center}
+		\end{minipage}
+	\end{minipage}
 
-	% where
-	% \begin{enumerate}
-	% 	\item $\Dec{[n]}{R^P}$ is the `trivial' game where moves = strategies = $[n]$ and coplay is just $\Delta$.
-	% 	\item $\regroup_p$ is regrouping along $\{p\} + P \to P$.
-	% \end{enumerate}
+	\vfill
 	and we equip this arena with $\colag{\boxtimes_{p \in P} \argmax (- \cmp \pi_p)}$.
 \end{frame}
 
 \begin{frame}{Imperfect information}
 	Sometimes players can't access the whole state of the game (i.e. history of play)
 
+	\vfill
 	\begin{center}
-		\includegraphics[width=.7\textwidth]{figures/imperfect-information.png}
+		\includegraphics[width=.65\textwidth]{figures/imperfect-information.png}
 	\end{center}
 \end{frame}
 
 \begin{frame}{Imperfect information}
-	Information (or better, lack thereof) is represented by sets of 'indistinguishable states' called \textcolor{coloragents}{\textbf{information sets}}.
+	Access to information (or better, lack thereof) is represented by sets of 'indistinguishable states' called \textcolor{coloragents}{\textbf{information sets}}:
 
 	\begin{center}
-		{\includegraphics[clip, page=16, trim=0cm 16cm 26.2cm 0cm, width=.6\textwidth]{figures/drawings.pdf}}
+		{\includegraphics[clip, page=16, trim=0cm 16cm 26.2cm 0cm, width=.7\textwidth]{figures/drawings.pdf}}
 	\end{center}
+
+
+	\vfill
+	\textbf{Limit case}: all information sets are singletons $\equiv$ perfect information.
 \end{frame}
 
 \begin{frame}{Imperfect information}
@@ -152,9 +164,6 @@
 			\item there is a \textcolor{colornote}{(surjective)} map $\colag{\belongs : I \to P}$.
 		\end{enumerate}
 	\end{definition}
-
-	\vfill
-	\textbf{Limit case}: all information sets are singletons $\equiv$ perfect information.
 \end{frame}
 
 

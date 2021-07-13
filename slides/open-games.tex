@@ -9,7 +9,7 @@
 	\begin{quotation}
 		\centering
 		Game theory is the mathematical study of {\color<2->{colorarena}interaction}\\ among independent, self-interested {\color<2->{coloragents}agents}.\\
-		{\color{colornote}-- Essentials of Game Theory \cite{leyton2008essentials}}
+		{\color{colornote}-- Essentials of Game Theory, \cite{leyton2008essentials}}
 	\end{quotation}
 
 	\vfill
@@ -32,14 +32,74 @@
 
 	\vfill
 	\onslide<3->{
-		A \textcolor{coloragents}{strategy} $\colag{\omega \in \Omega_p}$ for a player $\colag{}{1 \leq p \leq N}$ is a policy $p$ uses to make their decisions (e.g. a choice of move for each of $p$'s rounds).
+		A \textcolor{coloragents}{strategy} $\colag{\omega \in \Omega_p}$ for a player $\colag{1 \leq p \leq N}$ is a policy $\colag p$ uses to make their decisions (e.g. a choice of move for each of $\colag p$'s rounds).
 
 		\vfill
-		A \textcolor{coloragents}{strategy profile} is a strategy for each player $\colag{\Omega = \Omega_1 \times \cdots \times \Omega_p}$.
+		A \textcolor{coloragents}{strategy profile} is a strategy for each player $\colag{\Omega = \Omega_1 \times \cdots \times \Omega_N}$.
 	}
 \end{frame}
 
-% rant about players here
+\begin{frame}{What is an arena?}
+	\begin{center}
+		An \textcolor{colorarena}{arena} is an open system with three boundaries:
+	\end{center}
+
+	{\issue change strategies to profiles}
+	\begin{center}
+		\includegraphics[clip, page=2, trim=0cm 3cm 3cm 2cm, width=.8\textwidth]{figures/drawings.pdf}
+	\end{center}
+
+	This is a \textbf{parametrised lens} $\textcolor{colorarena}{\A : (X,S) \nlongto{\textcolor{coloragents}{(\Omega, \Comega)}} (Y,R)}$ specified by two maps
+	\begin{eqalign*}
+		\textcolor{colorarena}{\play} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \to Y},\\
+		\textcolor{colorarena}{\coplay} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \times R \to \textcolor{coloragents}{\Comega} \times S}
+	\end{eqalign*}
+	\textcolor{colornote}{See~\cite{capucci2021towards},~\cite{backprop}.}
+\end{frame}
+
+\begin{frame}{What is an arena?}
+	\begin{center}
+		It can be `closed' by specifying an \textcolor{colorarena}{\textbf{initial state}} and a \textcolor{colorarena}{\textbf{utility function}}:
+	\end{center}
+
+	\begin{center}
+		\includegraphics[clip, page=4, trim=4.5cm 3cm 2cm 7cm, width=.9\textwidth]{figures/drawings.pdf}
+	\end{center}
+	Observe that $\colar{\Lens(1,1)(X,S) \iso X}$ and $\colar{\Lens(Y,R)(1,1) \iso Y \to R}$.
+\end{frame}
+
+\begin{frame}{What is an arena?}
+	\begin{center}
+		A \textcolor{colorarena}{\textbf{closed arena}} amounts to an evaluation of strategies with rewards:
+	\end{center}
+
+	\vspace{5ex}
+	\begin{center}
+		\includegraphics[clip, page=5, trim=3cm 6.5cm .5cm 5cm, width=.9\textwidth]{figures/drawings.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{What are players?}
+	\begin{center}
+		\textcolor{coloragents}{Players} are a \emph{distinct part} of the game (seen as a \textbf{system})\\
+		which expresses \textcolor{coloragents}{preferences} by means of a \textcolor{coloragents}{\textbf{selection function}}:
+	\end{center}
+
+	{\fontsize{1.5em}{1.5em}\selectfont
+	\begin{equation*}
+		\colag{\varepsilon} : (\colar{\colag{\Omega} \to \colag{\Comega}}) \longto \copow{\colag \Omega}
+	\end{equation*}
+	}
+
+	In a single-player game, typically $\colag\Omega$ is `finite', $\colag{\Comega = \R}$ and $\colag\varepsilon$ is $\argmax$:
+	\begin{equation*}
+		\colag{\argmax(\colar{u : \colag\Omega \to \colag\R})} = \{\colag{\omega \in \Omega} \suchthat \text{$\colag\omega$ maximises $\colar u$}\} \subseteq \colag\Omega.
+	\end{equation*}
+\end{frame}
+
+% a player observes how other players chose to play in the game (i.e. their strategies), but their only leverage is to change their own strategy.
+% a Nash equilibrium is a stand-off situation: nobody can change strategy without getting worse outcomes _given the other players do not deviate_
+% notice this doesn't mean that, as a group, players realize their optimal outcome, which might require players to cooperate and deviate jointly
 \begin{frame}{What is a Nash equilibrium?}
 	\begin{center}
 		A strategy profile is a \textbf{Nash equilibrium}\\
@@ -52,67 +112,30 @@
 	\end{center}
 
 	\vfill
-	\textcolor{colornote}{Traditionally `the goal' of game theory is determining Nash equilibria of games, though this is not necessarily the case anymore (see: \cite{fudenberg1998theory}).}
+	\textcolor{colornote}{Traditionally `the' goal of game theory is determining Nash equilibria of games, though this is not necessarily the case anymore (see: \cite{fudenberg1998theory}).}
 \end{frame}
 
-\begin{frame}{What is an arena?}
-	An \textcolor{colorarena}{arena} is an open system with three boundaries:
+\newcommand{\altunderbrace}[3]{\alt<#1->{\underbrace{#2}_{#3}}{#2}}
+\newcommand{\altoverbrace}[3]{\alt<#1->{\overbrace{#2}^{#3}}{#2}}
 
-	\begin{center}
-		\includegraphics[clip, page=2, trim=0cm 3cm 3cm 2cm, width=.8\textwidth]{figures/drawings.pdf}
-	\end{center}
-
-	This is a parametrised lens $\textcolor{colorarena}{\A : (X,S) \nlongto{\textcolor{coloragents}{(\Omega, \Comega)}} (Y,R)}$ specified by two maps
-	\begin{eqalign*}
-		\textcolor{colorarena}{\play} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \to Y},\\
-		\textcolor{colorarena}{\coplay} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \times R \to \textcolor{coloragents}{\Comega} \times S}
-	\end{eqalign*}
-\end{frame}
-
-\begin{frame}{What is an arena?}
-	It can be closed by specifying an \textcolor{colorarena}{\textbf{initial state}} and a \textcolor{colorarena}{\textbf{utility function}}:
-
-	\begin{center}
-		\includegraphics[clip, page=4, trim=4.5cm 3cm 2cm 7cm, width=.9\textwidth]{figures/drawings.pdf}
-	\end{center}
-	Observe that $\colar{\Lens(1,1)(X,S) \iso X}$ and $\colar{\Lens(Y,R)(1,1) \iso Y \to R}$.
-\end{frame}
-
-\begin{frame}{What is an arena?}
-	A \textbf{closed} \textcolor{colorarena}{arena} amounts to an evaluation of strategies with rewards:
-
-	\vspace{5ex}
-	\begin{center}
-		\includegraphics[clip, page=5, trim=3cm 6.5cm .5cm 5cm, width=.9\textwidth]{figures/drawings.pdf}
-	\end{center}
-\end{frame}
-
-\begin{frame}{What is a selection function?}
-	\textcolor{coloragents}{Agents} express their preferences by means of a \textcolor{coloragents}{\textbf{selection function}}:
-
-	{\fontsize{1.5em}{1.5em}\selectfont
-	\begin{equation*}
-		\colag{\varepsilon} : (\colar{\colag{\Omega} \to \colag{\Comega}}) \longto \copow{\colag \Omega}
-	\end{equation*}
-	}
-
-	Typically, $\colag\Omega$ is 'finite', $\colag{\Comega = \R}$ and $\colag\varepsilon$ is $\argmax$:
-	\begin{equation*}
-		\colag{\argmax(\colar{u : \colag\Omega \to \colag\R})} = \{\colag{\omega \in \Omega} \suchthat \text{$\colag\omega$ maximises $\colar u$}\} \subseteq \colag\Omega.
-	\end{equation*}
+\begin{frame}{What is a Nash equilibrium?}
+	The assignment $\colag{\S(\Omega,\Comega)} := (\colar{\colag{\Omega} \to \colag{\Comega}}) \longto \copow{\colag \Omega}$ is functorial on $\Lens$.
 
 	\vfill
-	\onslide<2->{
-		The assignment $\colag{\S(\Omega,\Comega)} := (\colar{\colag{\Omega} \to \colag{\Comega}}) \longto \copow{\colag \Omega}$ is functorial on $\Lens$.
+	Crucially, $\colag\S$ admits a lax monoidal structure we call \textbf{Nash product}:
+	\begin{eqalign*}
+		&\colag{- \boxtimes -} : \colag{\S(\Omega_1,\Comega_1)} \times \colag{\S(\Omega_2, \Comega_2)} \longto \colag{\S(\Omega_1 \times \Omega_2, \Comega_1 \times \Comega_2)}\\[1ex]
+		&\colag{(\varepsilon \boxtimes \eta)}(\colar{u}) = \{ \colag{(\omega_1,\omega_2)} \suchthat \colag{\omega_1} \in \colag{\varepsilon}(\colar{u_1(-,\colag{\omega_2})})\ \text{and}\ \colag{\omega_2} \in \colag{\eta}(\colar{u_2(\colag{\omega_1}, -)})\}\\
+		&\phantom{\colag{(\varepsilon \boxtimes \eta)}(\colar{u})}\onslide<2->{ = \textcolor{coloraccent}{\text{profiles s.t. `no agent wants to unilaterally deviate'}}}
+	\end{eqalign*}
+	where $\colar{u = (u_1,u_2) : \colag{\Omega_1} \times \colag{\Omega_2} \to \colag{\Comega_1} \times \colag{\Comega_2}}$.
 
-		\vfill
-		Crucially, it admits a lax monoidal structure (\textbf{Nash product}):
-		\begin{eqalign*}
-			&\colag{- \boxtimes -} : \colag{\S(\Omega_1,\Comega_1)} \times \colag{\S(\Comega_1, \Comega_2)} \longto \colag{\S(\Omega_1 \times \Omega_2, \Comega_1 \times \Comega_2)}\\[1ex]
-			&\colag{(\varepsilon \boxtimes \eta)}(\colar{u}) = \{ \colag{(\omega_1,\omega_2)} \suchthat \colag{\omega_1} \in \colag{\varepsilon}(\colar{u_1(-,\colag{\omega_2})})\ \text{and}\ \colag{\omega_2} \in \colag{\eta}(\colar{u_2(\colag{\omega_1}, -)})\}\\
-			&\phantom{\colag{(\varepsilon \boxtimes \eta)}(\colar{u})} = \text{strategies s.t. `no agent wants to unilaterally deviate'}
-		\end{eqalign*}
-		where $\colar{u = (u_1,u_2) : \colag{\Omega_1} \times \colag{\Omega_2} \to \colag{\Comega_1} \times \colag{\Comega_2}}$.
+	\vfill
+	\onslide<3->{
+		Hence if we have players $\colag{P = \{1, \ldots, N\}}$, each with preferences $\colag{\varepsilon_i \in \S(\Omega_i, \Comega_i)}$, we get:
+		\begin{equation*}
+			\colag{\varepsilon_1 \boxtimes \cdots \boxtimes \varepsilon_N} : (\altoverbrace{5}{\altunderbrace{4}{\colar{\colag{\Omega_1 \times \cdots \times \Omega_N}}}{\colag{\text{strat. profiles}}} \;\colar{\longto}\; \altunderbrace{4}{\colag{\Comega_1 \times \cdots \times \Comega_N}}{\colag{\text{reward vectors}}}}{\colar{\text{utility functions/\textbf{closed arenas}}}}) \longto \altunderbrace{6}{\copow{(\colag{\Omega_1 \times \cdots \times \Omega_N})}}{\textcolor{coloraccent}{\text{Nash equilibria}}}
+		\end{equation*}
 	}
 \end{frame}
 
@@ -146,7 +169,7 @@
 		\begin{equation*}
 			\eq_\G(x, k) = \colag{\varepsilon(}\colar{x \cmp \A \cmp k}\colag{)}.
 		\end{equation*}%
-		\textcolor{colornote}{In this way we recover the equilibrium predicate of open games.}
+		\textcolor{colornote}{In this way we recover the equilibrium predicate of open games (\cite{ghani2018compositional}).}
 	\end{definition}
 
 	\vfill
@@ -217,37 +240,49 @@
 	\vfill
 	This is crucial for introducing agency!
 
+	\vfill
+	Lenses in the blue direction represent `\textcolor{coloragents}{players dynamics}', e.g. voting, observational constraints, reward distributions (imputation), ...
 	%\vfill
 	%\textcolor{colornote}{If we work in $\Para_{\times_\S}(\Lens_\S)$, we see that `$(1,1,\top)$ coclassifies equilibria', i.e. $(1,1,\top) \twoto \G \iso \eq_\G$.}
 \end{frame}
 
 \begin{frame}{Regrouping}
-	If $\A$ has set of players $P$ and $r : P \to Q$ is a function, we can turn $\A$ into an arena with players $Q$ by reparametrising along the permutation induced by $r$:
+	If $\colar\A$ has set of players $\colag P$ and $\colag{r : P \to Q}$ is a function, we can turn $\colar\A$ into an arena with players $\colag Q$ by reparametrising along the permutation of $\colag{\prod_{p \in P} \Omega_P}$ induced by $\colag r$:
 	\begin{equation*}
 		\colag{\regroup_r : ({\textstyle\prod}_{q \in Q} (r^* \Omega)_q, {\textstyle\prod}_{q \in Q} (r^* \Comega)_q) \longto ({\textstyle\prod}_{p \in P} \Omega_p, {\textstyle\prod}_{p \in P} \Comega_p)}
 	\end{equation*}
-	\begin{example}
-		If $\colar{\A_1}$ and $\colar{\A_2}$ have the same players $\colag P$, $\colar{\A_1 \cmp \A_2}$ has players $\colag{P+P}$. Regrouping along $\colag{\nabla : P+P \to P}$ restores the correct set of players.
+	\begin{example}<2->
+		If $\colar{\A_1}$ and $\colar{\A_2}$ have the same players $\colag{P = \{1,2\}}$, $\colar{\A_1 \cmp \A_2}$ has players $\colag{P+P}$. Regrouping along $\colag{\nabla : P+P \to P}$ restores the correct set of players.
+		\begin{center}
+			\only<-2>{
+				\includegraphics[clip, page=10, trim=0cm 24.5cm 25.7cm .5cm, width=.7\textwidth]{figures/drawings.pdf}
+			}
+			\only<3>{
+				\includegraphics[clip, page=10, trim=18cm 13cm 7cm 6.6cm, width=.7\textwidth]{figures/drawings.pdf}
+			}
+			\only<4>{
+				\includegraphics[clip, page=10, trim=0cm 13cm 25cm 7cm, width=.7\textwidth]{figures/drawings.pdf}
+			}
+			\only<5>{
+				\includegraphics[clip, page=10, trim=.5cm 2.2cm 25cm 17.5cm, width=.7\textwidth]{figures/drawings.pdf}
+			}
+		\end{center}
 	\end{example}
-
-	\begin{center}
-		\includegraphics[clip, page=10, trim=0cm 16.8cm 16cm .5cm, width=.7\textwidth]{figures/drawings.pdf}
-	\end{center}
-
-	Here $\colag{\Omega_i = (\nabla^* \Omega)_i = \Omega_i^1 \times \Omega_i^2}$, and likewise for $\Comega$.
 \end{frame}
 
 \begin{frame}{Tying}
 	By reparametrising along $\colag{(\Delta, \mathsf{combine})}$ (where $\colag{\mathsf{combine} = +, \pi_2, \max, \ldots}$), we can enforce the same strategies to be played at different points of a game.
 
-	\begin{example}
-		Play the same strategy every round:
+	\begin{example}<2->
+		Repeated games: play the same strategies at every round
 		\begin{center}
 			\includegraphics[clip, page=11, trim=0cm 15cm 10cm 0cm, width=.85\textwidth]{figures/drawings.pdf}
 		\end{center}
 	\end{example}
 
 	\vfill
-	\textbf{Notice}: $\colag{(\Delta, \mathsf{combine})^*}\colar{(\A_1 \cmp \A_2)}$ lies outside the image of $-\cmp-$, hence introduces 'non-compositional' effects. Indeed: \textbf{\textcolor{coloragents}{agency} is non-local.}
+	\onslide<3->{
+		\textbf{Notice}: $\colag{(\Delta, \mathsf{combine})^*}\colar{(\A_1 \cmp \A_2)}$ lies outside the image of $\cmp$/$\otimes$/$\oplus$/$\&$, hence introduces 'non-compositional' effects $\rightsquigarrow$ \textbf{`\textcolor{coloragents}{agency} is non-local'.}
+	}
 	%\textcolor{colornote}{We'll use this soon to treat imperfect information. Also useful for Markov games.}
 \end{frame}

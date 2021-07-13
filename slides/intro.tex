@@ -36,51 +36,33 @@
 \end{frame}
 
 \begin{frame}{Introduction}
-	Translating NF to open games is 'trivial' (there's only a utility function)...
-
-	\begin{center}
-		\includegraphics[width=.7\textwidth]{figures/nf_to_og.png}
-	\end{center}
-
-	\onslide<2->{
-		Translating EF to open games (mantaining a similar causal structure) is non-trivial:
+	\alt<2->{
+		Translating EF to open games is non-trivial:
 		\begin{enumerate}
-			\item EF is a \textbf{non-inductive definition}, and it's messy to map a whole tree in one go.
-			\item Open games don't have an \textbf{explicit notion of players}, necessary to model imperfect information and to correctly compute equilibria.
+			\item We need to seriously consider the problem of agency:
+			\begin{enumerate}
+				\item How do we represent correlated interests across a game?
+				\item How do we represent player-dependent observational constraints (imperfect information)?
+			\end{enumerate}
+			\item We need operators to reflect the tree structure of the game.
 		\end{enumerate}
-	}
-	\onslide<3->{
-		To do so, we introduce:
 
-		\begin{enumerate}
-			\item Open games with \textbf{agency}, an improved compositional framework for games,
-			\item An operator calculus for games, in particular new \textbf{choice operators},
-			\item \textbf{Inductive data types for EF trees} with (im)perfect information.
-		\end{enumerate}
+		\onslide<3->{
+			To do so, we introduce:
+
+			\begin{enumerate}
+				\item \textbf{Open games with agency}, an improved compositional (and conceptual) framework for games,
+				drawing from/inspiring `open cybernetic systems'\footnote[frame]{\cite{capucci2021towards}}.
+				\item An operator calculus for games, in particular new \textbf{choice operators}.
+				%\item \textbf{Inductive data types for EF trees} with (im)perfect information.
+			\end{enumerate}
+		}
+	}{
+		Translating NF to open games is 'trivial' (there's only a utility function)...
+
+		\begin{center}
+			\includegraphics[width=.7\textwidth]{figures/nf_to_og.png}
+		\end{center}
 	}
 \end{frame}
 
-% 1. Open Games with Agency
-% - lenses and bidirectional information flow (= attuale)
-% - straight to: arena as parametrised lens (slide 12 ma con strat (slide 23 but rename costrategies and redraw))
-% - composition
-% - choice
-% - reparametrisation & regrouping
-% - closing an arena: state and payoff
-% - keep slide 18
-% - keep slide 22-25 but (a) condense intro to 1 slide, (b) slide 25 on directly exemplify lens_S (or not?)
-% - slide 27 add '\in \varepsilon \boxtimes \eta(k)' to the diagram
-% - put slide 28 in slide 29 with def
-
-% 2. Extensive form and translation
-% - lots of pictures of trees
-% - PETree & defs
-% - translation: a single picture
-% - an example (probably to work out 'live'?)
-% - IETree & defs
-% - translation: a single picture
-% - an example (probably to work out 'live'?)
-
-% 3. Future work
-% - Functoriality?
-% - Copy from paper
