@@ -144,7 +144,7 @@
 	\textcolor{coloragents}{Strategies} need to respect information sets: players can't distinguish between states in the same set:
 
 	\begin{center}
-		{\includegraphics[clip, page=17, trim=0cm 13.5cm 11cm 0cm, width=.9\textwidth]{figures/drawings.pdf}}
+		\includegraphics[clip, page=17, trim=0cm 13.5cm 11cm 0cm, width=.9\textwidth]{figures/drawings.pdf}
 	\end{center}
 
 	\textcolor{colornote}{It gets a bit more complicated with mixed strategies.}
@@ -173,8 +173,8 @@
 		\item Forget about information sets and recover a perfect information game:
 		\begin{align*}
 			& \IETtoPET : \IETree \to \PETree\\
-			& \IETtoPET\; (\Leaf\; v) = \Leaf\; v\\
-			& \IETtoPET\; (\Node\; i\; f) = \Node\; (\belongs\,i)\; (n\; i)\; (\lambda m \,.\, \IETtoPET\; (f\; m))
+			& \IETtoPET\; (\Leaf\; \colar v) = \Leaf\; \colar v\\
+			& \IETtoPET\; (\Node\; \colag i\; f) = \Node\; (\colag{\belongs\;i})\; (\colar{n\; i})\; (\lambda \colar{m} \,.\, \IETtoPET\; (f\; \colar m))
 		\end{align*}
 		\item Translate it using $\PETtoArena$.
 		\item Reparametrise along $\colag\clone$ which ties strategies in the same information sets.
@@ -182,4 +182,21 @@
 	\begin{align*}
 		\colag{\IETtoArena}(T) = \colag{\clone^*} (\colar{\PETtoArena}\; (\IETtoPET\; T))
 	\end{align*}
+\end{frame}
+
+\begin{frame}{Example: Prisoner's Dilemma}
+	\vspace{-7ex}
+	\begin{flushright}
+		\hspace{5ex}
+		\includegraphics[clip, page=20, trim=0cm 18.5cm 25cm .5cm, width=.4\textwidth]{figures/drawings.pdf}
+	\end{flushright}
+	\begin{center}
+		\includegraphics[clip, page=21, trim=0cm 0cm 0cm 0cm, width=.9\textwidth]{figures/drawings.pdf}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Example: Prisoner's Dilemma}
+	\begin{center}
+		\includegraphics[clip, page=22, trim=0cm 13cm 15cm 0cm, width=.7\textwidth]{figures/drawings.pdf}
+	\end{center}
 \end{frame}
