@@ -28,6 +28,7 @@
 \newcommand{\fontsizeone}{2em}
 \newcommand{\fontsizetwo}{1em}
 \newcommand{\fontsizethree}{0.875em}
+\newcommand{\fontsizefour}{0.5em}
 
 % beamer template changes
 \setbeamertemplate{frametitle}{
@@ -62,6 +63,14 @@
 
 \newcommand{\largetext}[1]{
  {\fontsize{\fontsizetwo}{\fontsizetwo}{\selectfont #1}}
+}
+
+\newcommand{\mediumtext}[1]{
+ {\fontsize{\fontsizethree}{\fontsizethree}{\selectfont #1}}
+}
+
+\newcommand{\smalltext}[1]{
+ {\fontsize{\fontsizefour}{\fontsizefour}{\selectfont #1}}
 }
 
 \newcommand{\setnote}[1]{
@@ -104,20 +113,32 @@
 % \setbeamercolor{block title}{bg=colorbglight}
 % \setbeamercolor{block body}{bg=colorbglight}
 
-% \defbeamertemplate*{title page}{customized}[1][]
-% {
-%   {\hfill
-%   \includegraphics[width=.2\textwidth]{figures/logo_strath.jpg}
-%   \par}
-%   \vfill
-%   {\centering
-%   \usebeamercolor[fg]{title}\fontsize{4ex}{15ex}{\selectfont \inserttitle}}
-%   \\[2ex]
-%   {\usebeamercolor[fg]{subtitle}\largetext{\insertsubtitle}}\\
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \vfill
+  \begin{center}
+    \usebeamercolor[fg]{title}
+    \hugetext{\bfseries Translating Extensive Form Games\\[1ex]to Open Games with Agency}
+  \end{center}
 
-%   \vfill
-%   {\usebeamercolor[fg]{author}\largetext{\insertauthor}}\\
+  \vspace{2ex}
 
-%   \vfill
-%   {\insertdate\par}
-% }
+  \begin{center}
+    \usebeamercolor[fg]{subtitle}
+    \mediumtext{\textcolor{blue}{\href{https://arxiv.org/abs/2105.06763}{arXiv 2105.06763}}}
+  \end{center}
+
+  \vfill
+  \begin{center}
+    \usebeamercolor[fg]{author}
+    \largetext{\href{https://matteocapucci.wordpress.com}{\underline{Matteo Capucci}}, \href{https://personal.cis.strath.ac.uk/neil.ghani/}{Neil Ghani},\\\href{https://personal.cis.strath.ac.uk/jeremy.ledent/}{Jérémy Ledent}, \href{https://fredriknf.com/}{Fredrik Nordvall Forsberg}}\\
+    \vspace{2ex}
+    \mediumtext{\href{https://msp.cis.strath.ac.uk}{Mathematically Structured Programming group},\\Department of Computer and Information Sciences,\\University of Strathclyde}
+  \end{center}
+
+  % \vfill
+  % {\usebeamercolor[fg]{institution}\largetext{\insertinstitution}}\\
+
+  \vfill
+  {\centering 4th International Conference on Applied Category Theory,\\Cambridge (UK)\\\vspace{1ex}July 14th, 2021\par}
+}

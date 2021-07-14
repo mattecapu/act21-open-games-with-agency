@@ -26,7 +26,7 @@
 		A game factors in two parts:
 		\begin{enumerate}
 			\item An \textcolor{colorarena}{\textbf{arena}}, which models the \textbf{dynamics} of the game.
-			\item \textcolor{coloragents}{\textbf{Players}}, which intervene in the arena by making \textbf{decisions} at different points.
+			\item Some \textcolor{coloragents}{\textbf{players}}, which intervene in the arena by making \textbf{decisions}.
 		\end{enumerate}
 	}
 
@@ -40,13 +40,10 @@
 \end{frame}
 
 \begin{frame}{What is an arena?}
-	\begin{center}
-		An \textcolor{colorarena}{arena} is an open system with three boundaries:
-	\end{center}
+	An \textcolor{colorarena}{arena} is an open system with three boundaries:
 
-	{\issue change strategies to profiles}
 	\begin{center}
-		\includegraphics[clip, page=2, trim=0cm 3cm 3cm 2cm, width=.8\textwidth]{figures/drawings.pdf}
+		\includegraphics[clip, page=2, trim=0cm 3cm 3cm 1.5cm, width=.8\textwidth]{figures/drawings.pdf}
 	\end{center}
 
 	This is a \textbf{parametrised lens} $\textcolor{colorarena}{\A : (X,S) \nlongto{\textcolor{coloragents}{(\Omega, \Comega)}} (Y,R)}$ specified by two maps
@@ -54,7 +51,6 @@
 		\textcolor{colorarena}{\play} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \to Y},\\
 		\textcolor{colorarena}{\coplay} &: \textcolor{coloragents}{\Omega} \textcolor{colorarena}{\times X \times R \to \textcolor{coloragents}{\Comega} \times S}
 	\end{eqalign*}
-	\textcolor{colornote}{See~\cite{capucci2021towards},~\cite{backprop}.}
 \end{frame}
 
 \begin{frame}{What is an arena?}
@@ -230,7 +226,7 @@
 \end{frame}
 
 \begin{frame}{Reparametrisation}
-	Most importantly arenas form a (locally fibred) bicategory: one can \textbf{reparametrise} along a lens $\colag{\alpha : (\Omega', \Comega') \to (\Omega, \Comega)}$.
+	Most importantly arenas form a (locally fibred) \textbf{bicategory}: one can \textbf{reparametrise} along a lens $\colag{\alpha : (\Omega', \Comega') \to (\Omega, \Comega)}$.
 
 	\vfill
 	\begin{center}
@@ -241,7 +237,9 @@
 	This is crucial for introducing agency!
 
 	\vfill
-	Lenses in the blue direction represent `\textcolor{coloragents}{players dynamics}', e.g. voting, observational constraints, reward distributions (imputation), ...
+	Lenses in the blue direction represent `\textcolor{coloragents}{players dynamics}',\\
+	\hspace{5ex}e.g. voting, observational constraints (imperfect information),\\
+	\hspace{5ex}\phantom{e.g. }rewards distribution (imputation), ...
 	%\vfill
 	%\textcolor{colornote}{If we work in $\Para_{\times_\S}(\Lens_\S)$, we see that `$(1,1,\top)$ coclassifies equilibria', i.e. $(1,1,\top) \twoto \G \iso \eq_\G$.}
 \end{frame}
@@ -273,7 +271,7 @@
 \begin{frame}{Tying}
 	By reparametrising along $\colag{(\Delta, \mathsf{combine})}$ (where $\colag{\mathsf{combine} = +, \pi_2, \max, \ldots}$), we can enforce the same strategies to be played at different points of a game.
 
-	\begin{example}<2->
+	\begin{example}
 		Repeated games: play the same strategies at every round
 		\begin{center}
 			\includegraphics[clip, page=11, trim=0cm 15cm 10cm 0cm, width=.85\textwidth]{figures/drawings.pdf}
@@ -281,8 +279,8 @@
 	\end{example}
 
 	\vfill
-	\onslide<3->{
-		\textbf{Notice}: $\colag{(\Delta, \mathsf{combine})^*}\colar{(\A_1 \cmp \A_2)}$ lies outside the image of $\cmp$/$\otimes$/$\oplus$/$\&$, hence introduces 'non-compositional' effects $\rightsquigarrow$ \textbf{`\textcolor{coloragents}{agency} is non-local'.}
+	\onslide<2->{
+		\textbf{Notice}: $\colag{(\Delta, \mathsf{combine})^*}\colar{(\A_1 \cmp \A_2)}$ lies outside the image of $\colar\cmp$/$\colar\otimes$/$\colar\oplus$/$\colar\&$, hence introduces 'non-compositional' effects \hspace{3ex}$\rightsquigarrow$ \textbf{`\textcolor{coloragents}{agency} is non-local'.}
 	}
 	%\textcolor{colornote}{We'll use this soon to treat imperfect information. Also useful for Markov games.}
 \end{frame}
